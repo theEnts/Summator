@@ -110,9 +110,9 @@ namespace SummatorTests
         [Test]
         public void Test_Division_Of_Two_Numbers()
         {
-            var nums = new int[] { 15, 5 };
+            var nums = new int[] { 25, 5 };
             double actual = Summator_Methods.Divide(nums);  
-            double expected = 3;
+            double expected = 5;
 
             Assert.AreEqual(expected, actual);
         }
