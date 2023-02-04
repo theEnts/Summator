@@ -1,4 +1,5 @@
-﻿using NUnit.Framework.Constraints;
+﻿using Newtonsoft.Json.Linq;
+using NUnit.Framework.Constraints;
 using Summator;
 using System.Collections;
 
@@ -53,7 +54,7 @@ namespace SummatorTests
         [Test]
         public void Test_Sum_Big_Number()
         {
-            var nums = new int[] { 2000000000, 2000000000, 2000000000};
+            var nums = new int[] { 2000000000, 2000000000, 2000000000 };
             var actual = Summator_Methods.Sum(nums);
 
             var expected = 6000000000;
@@ -111,8 +112,22 @@ namespace SummatorTests
         public void Test_Division_Of_Two_Numbers()
         {
             var nums = new int[] { 25, 5 };
-            double actual = Summator_Methods.Divide(nums);  
+            double actual = Summator_Methods.Divide(nums);
             double expected = 5;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        // DDT Test Cases
+        [TestCase(new int[] { 5, 2 }, 7)]
+        [TestCase(new int[] { -5, 2 }, -3)]
+        [TestCase(new int[] { -3, -3 },-6)]
+        [TestCase(new int[] { 1 }, 1)]
+        [TestCase(new int[] {}, 0)]
+        public void Test_Summator_SumDDT(int[] values, long expected)
+        {
+            var actual = Summator_Methods.Sum(values);
 
             Assert.AreEqual(expected, actual);
         }

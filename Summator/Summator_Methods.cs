@@ -1,4 +1,6 @@
-﻿namespace Summator
+﻿using System.Windows.Markup;
+
+namespace Summator
 {
     public static class Summator_Methods
     {
@@ -47,19 +49,17 @@
 
         public static int Divide(int[] arr)
         {
-            int x = arr[0]; 
+            int x = arr[0];
             int y = arr[1];
 
             int quotient = 0;
 
-            while (x - y >=0)
+            while (x - y >= 0)
             {
                 x -= y;
                 quotient += 1;
             }
             return quotient;
-
-
         }
     }
 }
